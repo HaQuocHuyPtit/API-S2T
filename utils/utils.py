@@ -4,6 +4,7 @@ import numpy as np
 import random
 import os
 
+
 def set_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
@@ -12,6 +13,7 @@ def set_seed(seed):
     np.random.seed(seed)
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
+
 
 def initialize_module(path: str, args: dict = None, initialize: bool = True):
     module_path = ".".join(path.split(".")[:-1])
@@ -27,7 +29,3 @@ def initialize_module(path: str, args: dict = None, initialize: bool = True):
             return class_or_function()
     else:
         return class_or_function
-
-
-
-
